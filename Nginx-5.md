@@ -1,4 +1,4 @@
-# HTTPS （HTTP+SSL）
+## HTTPS （HTTP+SSL）
 
 ### https 介绍
 
@@ -174,7 +174,7 @@ ssl:身份认证和数据加密。保证数据完整性
 
 
 
-#### 2、HTTPS 总结
+#### 3、HTTPS 总结
 
 **综上所述，相比 HTTP 协议，HTTPS 协议增加了很多握手、加密解密等流程，虽然过程很复杂，但其可以保证数据传输的安全。**
 
@@ -207,7 +207,7 @@ https://www.aliyun.com/ 阿里云官网
 
 申购云服务器
 
-# 购买域名
+#### 购买域名
 
 ![img](assets/Nginx-5/1652862509747-478aedcd-4044-498f-a932-e9c5d07690ce.png)
 
@@ -215,13 +215,13 @@ https://www.aliyun.com/ 阿里云官网
 
 ![img](assets/Nginx-5/1652862662356-61853dde-fc9c-4ac2-8e84-61d341389451.png)
 
-# 申购云服务器
+#### 申购云服务器
 
 ![img](assets/Nginx-5/1652862953231-453b09d6-f4ec-4413-b3cc-da0d401ac8e2.png)
 
 根据自己需求进行购买；
 
-# SSL证书申购
+#### SSL证书申购
 
 ![img](assets/Nginx-5/1652865023882-9afb5bad-f2bb-4646-a13c-5abea40d192a.png)
 
@@ -237,13 +237,13 @@ https://www.aliyun.com/ 阿里云官网
 
 
 
-# nginx证书配置
+#### nginx证书配置
 
 ![img](assets/Nginx-5/1652866729926-a905badb-7f22-4eb0-aff4-2bcc677f59e1.png)
 
 
 
-### 1、申请证书与认证
+#### 1、申请证书与认证
 
 
 
@@ -255,7 +255,7 @@ https://www.aliyun.com/ 阿里云官网
 
 
 
-#### 1、证书申请
+##### 1、证书申请
 
 
 
@@ -273,7 +273,7 @@ https://common-buy.aliyun.com/?spm=5176.2020520163.cas.1.1aa12b7aWWn20O&commodit
 
 
 
-![img](assets/1562123381388.png)
+![img](../../../Program Files/Typora/Typora/assets/1562123381388.png)
 
 
 
@@ -281,11 +281,11 @@ https://common-buy.aliyun.com/?spm=5176.2020520163.cas.1.1aa12b7aWWn20O&commodit
 
 
 
-![img](assets/1562123418824.png)
+![img](../../../Program Files/Typora/Typora/assets/1562123418824.png)
 
 
 
-#### 2、域名验证
+##### 2、域名验证
 
 
 
@@ -293,7 +293,7 @@ https://common-buy.aliyun.com/?spm=5176.2020520163.cas.1.1aa12b7aWWn20O&commodit
 
 
 
-![img](assets/1562129262162.png)
+![img](../../../Program Files/Typora/Typora/assets/1562129262162.png)
 
 
 
@@ -307,7 +307,7 @@ https://common-buy.aliyun.com/?spm=5176.2020520163.cas.1.1aa12b7aWWn20O&commodit
 
 
 
-将验证文件复制到服务器之后，还需要将验证文件放到f站点对应目录，参考命令如下：
+将验证文件复制到服务器之后，还需要将验证文件放到站点对应目录，参考命令如下：
 
 
 
@@ -334,7 +334,7 @@ server {
 
 
 ```shell
-http://www.asuka.com/.well-known/pki-validation/fileauth.txt
+http://www.qf.com/.well-known/pki-validation/fileauth.txt
 ```
 
 
@@ -347,7 +347,7 @@ http://www.asuka.com/.well-known/pki-validation/fileauth.txt
 
 
 
-![img](assets/1562133394941.png)
+![img](../../../Program Files/Typora/Typora/assets/1562133394941.png)
 
 
 
@@ -355,7 +355,7 @@ http://www.asuka.com/.well-known/pki-validation/fileauth.txt
 
 
 
-![img](assets/1562133415788.png)
+![img](../../../Program Files/Typora/Typora/assets/1562133415788.png)
 
 
 
@@ -363,7 +363,7 @@ http://www.asuka.com/.well-known/pki-validation/fileauth.txt
 
 
 
-### 2、证书下载与配置
+#### 2、证书下载与配置
 
 
 
@@ -375,7 +375,7 @@ http://www.asuka.com/.well-known/pki-validation/fileauth.txt
 
 
 
-![img](assets/1562133543812.png)
+![img](../../../Program Files/Typora/Typora/assets/1562133543812.png)
 
 
 
@@ -480,7 +480,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 
 
 
-![img](assets/1562135276893.png)
+![img](../../../Program Files/Typora/Typora/assets/1562135276893.png)
 
 
 
@@ -488,7 +488,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 
 
 
-### 3、Nginx 性能优化
+### 5、Nginx 性能优化
 
 
 
@@ -889,7 +889,7 @@ client_max_body_size 10m;
 
 ![img](assets/Nginx-5/1661917457359-45d2b802-4814-4bec-9713-99897a30740e.png)
 
-#### 5、ab接口压力测试工具
+#### 6、ab接口压力测试工具
 
 
 
@@ -983,7 +983,7 @@ Percentage of the requests served within a certain time (ms)
 
 
 
-# 注意事项
+##### 注意事项
 
 
 
