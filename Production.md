@@ -294,3 +294,154 @@ http {
 # 启动nginx
 ```
 
+# 启动Nginx proxy代理
+
+```shell
+nginx-1的ip：192.168.174.129
+已经编译安装好，检查nginx是否启动是否可以访问
+```
+
+```shell
+nginx-2的ip：192.168.174.130
+配置nginx的yum源直接yum安装
+启动
+编辑nginx的配置文件(编辑之前，删除/注释掉之前的配置):
+[root@nginx-server ~]# vim /etc/nginx/conf.d/default.conf
+server {
+    listen       80;
+    server_name  localhost;
+
+    location / {
+    proxy_pass http://192.168.174.129:80;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Real-IP $remote_addr; 
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+    proxy_connect_timeout 30;
+    proxy_send_timeout 60;
+    proxy_read_timeout 60;
+    }
+}
+重新加载nginx配置文件
+[root@nginx-server ~]# systemctl restart nginx
+```
+
+```shell
+nginx proxy具体配置详解
+proxy_pass ：真实服务器的地址，可以是ip也可以是域名和url地址
+proxy_set_header：重新定义或者添加发往后端服务器的请求头
+proxy_set_header X-Real-IP ：启用客户端真实地址（否则日志中显示的是代理在访问网站）
+proxy_set_header X-Forwarded-For：记录代理地址
+
+proxy_connect_timeout：后端服务器连接的超时时间发起三次握手等候响应超时时间
+proxy_send_timeout：后端服务器数据回传时间，就是在规定时间之内后端服务器必须传完所有的数据
+proxy_read_timeout ：nginx接收upstream（上游/真实） server数据超时, 默认60s, 如果连续的60s内没有收到1个字节, 连接关闭。像长连接
+```
+
+使用PC客户端访问nginx-2服务器地址，浏览器中输入http://192.168.174.130/ (也可以是nginx-2服务器的域名)
+
+成功访问nginx-1服务器页面，观察nginx-1（192.168.174.129）服务器的日志
+
+```shell
+cat /var/log/nginx/access.log
+```
+
+# Nginx-2
+
+```
+upstream配置
+```
+
+```
+负载均衡算法(分发策略)
+轮询、ip_hash、url_hash、fair
+```
+
+```
+配置实例
+热备、轮询、加权轮询、ip_hash
+```
+
+```
+nginx配置7层协议及4层协议方法
+```
+
+```
+nginx会话保持
+ip_hash、sticky_cookie_insert、jvm_route
+```
+
+```
+nginx实现动静分离
+```
+
+```
+nginx防盗链
+```
+
+```
+nginx rewrite地址重写
+if、rewrite、set、return、last，break
+```
+
+```
+apache的https(rewrite)
+location区段、location前缀、location配置
+```
+
+# Nginx-3
+
+```
+nginx日志配置
+1、作用域
+2、log_format指令
+3、自定义日志格式的使用
+4、error_log指令
+5、rewrite_log指令
+6、nginx日志轮转
+```
+
+```
+nginx平滑升级
+```
+
+```
+nginx错误页面配置
+```
+
+```
+nginx流量限制
+```
+
+```
+nginx访问控制
+1、基于ip的访问控制
+2、基于用户的信任登陆
+```
+
+# Nginx-4
+
+```
+自定义变量
+nginx安装echo模块
+内置预定义变量
+```
+
+```
+nginx监控
+nginx基础监控
+监控的主要指标
+(基本活跃指标、每秒请求数、服务器错误率、指标的收集)
+nginx stub status监控模块安装
+nginx状态查看
+stub status参数说明
+reqstat模块监控
+nginx access log分析
+```
+
+# Nginx-5
+
+```
+Https
+```
+
